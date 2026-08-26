@@ -7,7 +7,7 @@ import '../styles/tourism.css';
 
 const BAND = [
   { src: '/media/g-pasillo.jpg', alt: 'Pasillo principal de la clínica' },
-  { src: '/media/g-estetica-puerta.jpg', alt: 'Acceso al área de estética' },
+  { src: '/media/g-estetica-sala.jpg', alt: 'Cabina de tratamientos faciales' },
   { src: '/media/g-recepcion.jpg', alt: 'Recepción de la clínica' },
 ];
 
