@@ -1,0 +1,119 @@
+/* ==================================================================
+   MODAL DEL RECORRIDO — el video es 9:16, así que manda la altura
+   ================================================================== */
+
+.vmodal {
+  position: fixed;
+  inset: 0;
+  z-index: 9800;
+  display: grid;
+  place-items: center;
+  padding: clamp(16px, 4vw, 48px);
+  background: rgba(24, 21, 19, 0.9);
+  backdrop-filter: blur(16px);
+}
+
+.vmodal__frame {
+  position: relative;
+  height: min(84vh, 780px);
+  aspect-ratio: 9 / 16;
+  max-width: 100%;
+  border-radius: 20px;
+  overflow: hidden;
+  background: #000;
+  box-shadow:
+    0 50px 110px -50px rgba(0, 0, 0, 0.9),
+    0 0 0 1px rgba(var(--dorado-rgb), 0.34);
+}
+
+.vmodal__frame video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.vmodal__bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 34px 16px 16px;
+  background: linear-gradient(180deg, transparent, rgba(20, 17, 15, 0.82));
+}
+
+.vmodal__tag {
+  font-size: 0.6rem;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 242, 0.78);
+}
+
+.vmodal__sound {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6em;
+  padding: 0.55em 1.05em;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 247, 242, 0.3);
+  background: rgba(250, 247, 242, 0.08);
+  color: var(--marfil);
+  font-size: 0.58rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition:
+    background-color 0.35s var(--ease-smooth),
+    border-color 0.35s var(--ease-smooth);
+}
+
+.vmodal__sound:hover {
+  background: rgba(var(--dorado-rgb), 0.24);
+  border-color: rgba(var(--dorado-rgb), 0.6);
+}
+
+.vmodal__sound svg {
+  width: 16px;
+  height: 16px;
+}
+
+.vmodal__close {
+  position: absolute;
+  top: clamp(14px, 3vw, 30px);
+  right: clamp(14px, 3vw, 30px);
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  border-radius: 50%;
+  border: 1px solid rgba(250, 247, 242, 0.26);
+  color: var(--marfil);
+  cursor: pointer;
+  transition:
+    background-color 0.35s var(--ease-smooth),
+    transform 0.35s var(--ease-premium);
+}
+
+.vmodal__close:hover {
+  background: rgba(var(--dorado-rgb), 0.26);
+  transform: rotate(90deg);
+}
+
+.vmodal__close svg {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 560px) {
+  .vmodal__frame {
+    height: min(74vh, 620px);
+    border-radius: 16px;
+  }
+  .vmodal__close {
+    width: 40px;
+    height: 40px;
+  }
+}

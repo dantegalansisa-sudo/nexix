@@ -4,11 +4,11 @@ import ScrollProgress from './components/ScrollProgress';
 import Preloader from './components/Preloader';
 import Nav from './components/Nav';
 import Hero from './components/Hero';
+import TrustStrip from './components/TrustStrip';
 import Marquee from './components/Marquee';
 import Philosophy from './components/Philosophy';
 import Treatments from './components/Treatments';
 import Doctor from './components/Doctor';
-import Space from './components/Space';
 import Tourism from './components/Tourism';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
@@ -26,11 +26,11 @@ export default function App() {
 
       <main>
         <Hero />
+        <TrustStrip />
         <Marquee />
         <Philosophy />
         <Treatments />
         <Doctor />
-        <Space />
         <Tourism />
         <Testimonials />
         <Contact />

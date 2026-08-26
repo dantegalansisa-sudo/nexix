@@ -8,14 +8,20 @@ export default function Footer() {
   const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
 
   return (
-    <footer className="footer bg-dark">
+    <footer className="footer">
       <div className="shell">
-        <hr className="footer__rule" />
-
         <div className="footer__grid">
           <div className="footer__brand">
-            <img src="/media/logo-full.png" alt={CLINIC.name} />
-            <p>{t.footer.tagline}</p>
+            {/* El logotipo va compuesto, no como imagen: el raster con su sombra
+                se ensuciaba al escalar y el dorado perdía nitidez. */}
+            <div className="footer__lockup">
+              <img src="/media/logo-mark.png" alt="" />
+              <span>
+                <strong>MARTIS</strong>
+                <em>Esthetic &amp; Dental Clinic Group</em>
+              </span>
+            </div>
+            <p className="footer__tagline">{t.footer.tagline}</p>
           </div>
 
           <nav className="footer__nav" aria-label="Footer">

@@ -19,7 +19,9 @@
   display: grid;
   grid-template-columns: minmax(0, 1.08fr) minmax(0, 0.92fr);
   gap: clamp(44px, 6vw, 100px);
-  align-items: start;
+  /* Las dos columnas cierran juntas: si la tarjeta queda más corta que los
+     datos, la sección abre un hueco oscuro enorme al final de la página. */
+  align-items: stretch;
 }
 
 .contact__title {
@@ -105,6 +107,10 @@
   background: var(--marfil);
   color: var(--espresso);
   box-shadow: 0 40px 90px -44px rgba(0, 0, 0, 0.85);
+  /* La tarjeta se estira con la columna: el formulario reparte el alto y
+     el botón queda anclado abajo en vez de dejar un vacío. */
+  display: flex;
+  flex-direction: column;
 }
 
 .formcard__title {
@@ -190,4 +196,15 @@
   .contact__actions > div {
     width: 100%;
   }
+}
+
+/* Reparto interno de la tarjeta de formulario */
+.formcard form {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.formcard__submit {
+  margin-top: auto;
 }
