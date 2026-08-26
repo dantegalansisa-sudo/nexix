@@ -30,6 +30,7 @@ export default function Footer() {
           <address className="footer__contact">
             <span>{CLINIC.address}</span>
             <span>{CLINIC.city}</span>
+            <a href={CLINIC.phoneHref}>{CLINIC.phoneDisplay}</a>
             <a href={CLINIC.instagram} target="_blank" rel="noopener noreferrer">
               {CLINIC.instagramHandle}
             </a>

@@ -16,7 +16,10 @@ export const CLINIC = {
    * Sólo con el número se puede abrir WhatsApp con el mensaje ya escrito;
    * mientras esté vacío se usa el link corto y el texto se copia al portapapeles.
    */
-  whatsappNumber: '',
+  whatsappNumber: '18298130938',
+  /** Mismo número, en formato legible para mostrar en pantalla. */
+  phoneDisplay: '+1 (829) 813-0938',
+  phoneHref: 'tel:+18298130938',
   address: 'Av. 27 de Febrero esq. Profesor Puello #56',
   city: 'San Pedro de Macorís 21000, República Dominicana',
   maps: 'https://www.google.com/maps/search/?api=1&query=Av.+27+de+Febrero+esquina+Profesor+Puello+56+San+Pedro+de+Macoris',
@@ -210,6 +213,7 @@ const es = {
     title: 'Empecemos por una conversación',
     body: 'Cuéntanos qué te gustaría cambiar. La primera valoración es una conversación tranquila, sin compromiso, para entender tu caso y explicarte las opciones reales.',
     addressLabel: 'Dirección',
+    phoneLabel: 'Teléfono',
     hoursLabel: 'Horario',
     hours: ['Lunes a viernes · 9:00 – 18:00', 'Sábados · 9:00 – 14:00'],
     socialLabel: 'Redes',
@@ -409,6 +413,7 @@ const en: Dict = {
     title: 'Let us start with a conversation',
     body: 'Tell us what you would like to change. The first assessment is a calm, no-commitment conversation to understand your case and walk you through the real options.',
     addressLabel: 'Address',
+    phoneLabel: 'Phone',
     hoursLabel: 'Hours',
     hours: ['Monday to Friday · 9:00 – 18:00', 'Saturday · 9:00 – 14:00'],
     socialLabel: 'Social',

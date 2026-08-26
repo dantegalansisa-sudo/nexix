@@ -77,6 +77,14 @@ export default function Contact() {
               </dd>
             </div>
             <div>
+              <dt>{t.contact.phoneLabel}</dt>
+              <dd>
+                <a href={CLINIC.phoneHref} className="contact__link">
+                  {CLINIC.phoneDisplay}
+                </a>
+              </dd>
+            </div>
+            <div>
               <dt>{t.contact.hoursLabel}</dt>
               <dd>
                 {t.contact.hours.map((h) => (
