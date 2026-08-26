@@ -1,0 +1,184 @@
+.doctor {
+  background: var(--marfil);
+  overflow: hidden;
+}
+
+.doctor__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+  gap: clamp(44px, 6vw, 104px);
+  align-items: center;
+}
+
+/* -------------------------------- Texto -------------------------------- */
+.doctor__copy {
+  max-width: 62ch;
+}
+
+.doctor__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3vw, 2.7rem);
+  font-weight: 400;
+  line-height: 1.1;
+  margin-top: clamp(14px, 1.8vw, 22px);
+}
+
+.doctor__role {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--dorado-deep);
+  margin-top: 8px;
+}
+
+.doctor__title {
+  margin: clamp(24px, 3vw, 36px) 0 clamp(18px, 2.2vw, 26px);
+  max-width: 17ch;
+}
+
+.doctor__p {
+  color: var(--topo);
+  font-size: var(--fs-body);
+  line-height: 1.82;
+  max-width: 54ch;
+}
+
+.doctor__p + .doctor__p {
+  margin-top: 1.05em;
+}
+
+/* ----------------------------- Credenciales ----------------------------- */
+.creds {
+  margin: clamp(30px, 4vw, 46px) 0 clamp(30px, 4vw, 44px);
+  display: grid;
+  gap: 0;
+}
+
+.creds li {
+  display: grid;
+  grid-template-columns: clamp(120px, 15vw, 190px) 1fr;
+  gap: clamp(12px, 2vw, 26px);
+  align-items: baseline;
+  padding: 14px 0;
+  border-top: 1px solid rgba(var(--espresso-rgb), 0.1);
+}
+
+.creds li:last-child {
+  border-bottom: 1px solid rgba(var(--espresso-rgb), 0.1);
+}
+
+.creds__detail {
+  font-size: 0.62rem;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--dorado-deep);
+}
+
+.creds__label {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  color: var(--espresso);
+}
+
+/* ------------------------------- Retrato -------------------------------- */
+.doctor__media {
+  position: relative;
+  width: 100%;
+  max-width: 430px;
+  margin-left: auto;
+}
+
+.doctor__frame {
+  position: relative;
+  aspect-ratio: 5 / 6.1;
+  background: var(--arena);
+  box-shadow: 0 38px 84px -38px rgba(var(--espresso-rgb), 0.4);
+}
+
+.doctor__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 46% 18%;
+}
+
+.doctor__outline {
+  position: absolute;
+  inset: 0;
+  transform: translate(clamp(-26px, -2vw, -14px), clamp(14px, 2vw, 26px));
+  border: 1px solid rgba(var(--dorado-rgb), 0.5);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Chapa de trayectoria apoyada en la esquina del retrato */
+.doctor__badge {
+  position: absolute;
+  left: clamp(-30px, -2.4vw, -16px);
+  bottom: clamp(24px, 4vw, 46px);
+  width: clamp(104px, 10vw, 132px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: var(--nocturno);
+  color: var(--marfil);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1px;
+  text-align: center;
+  padding: 8px;
+  box-shadow: 0 20px 44px -20px rgba(var(--espresso-rgb), 0.55);
+}
+
+.doctor__badge img {
+  width: 22px;
+  height: auto;
+  margin-bottom: 3px;
+}
+
+.doctor__badge span {
+  font-family: var(--font-display);
+  font-size: 1.6rem;
+  line-height: 1;
+  color: var(--champagne);
+}
+
+.doctor__badge em {
+  font-style: normal;
+  font-size: 0.9rem;
+}
+
+.doctor__badge small {
+  font-size: 0.42rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(250, 247, 242, 0.62);
+  line-height: 1.35;
+  max-width: 12ch;
+}
+
+/* ------------------------------ Responsive ------------------------------ */
+@media (max-width: 940px) {
+  .doctor__grid {
+    grid-template-columns: 1fr;
+  }
+  .doctor__media {
+    margin-inline: auto;
+    order: -1;
+  }
+  .doctor__copy {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 560px) {
+  .creds li {
+    grid-template-columns: 1fr;
+    gap: 4px;
+  }
+  .doctor__badge {
+    left: -12px;
+    width: 92px;
+  }
+}

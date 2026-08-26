@@ -1,0 +1,169 @@
+.philosophy {
+  background: var(--marfil);
+}
+
+.philosophy__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.82fr) minmax(0, 1.18fr);
+  gap: clamp(38px, 6vw, 96px);
+  align-items: center;
+}
+
+/* ------------------------------ Imagen ------------------------------- */
+.philosophy__media {
+  position: relative;
+}
+
+.philosophy__frame {
+  position: relative;
+  aspect-ratio: 4 / 5.4;
+  background: var(--arena);
+  box-shadow: 0 34px 78px -34px rgba(var(--espresso-rgb), 0.34);
+}
+
+.philosophy__frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Arco dorado desplazado: repite la arquitectura sin tapar la foto */
+.philosophy__outline {
+  position: absolute;
+  inset: 0;
+  transform: translate(clamp(14px, 2vw, 26px), clamp(14px, 2vw, 26px));
+  border: 1px solid rgba(var(--dorado-rgb), 0.5);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* ------------------------------- Texto -------------------------------- */
+.philosophy__copy {
+  max-width: 60ch;
+}
+
+.philosophy__title {
+  margin: clamp(16px, 2vw, 24px) 0 clamp(18px, 2.2vw, 28px);
+  max-width: 20ch;
+}
+
+.philosophy__p {
+  color: var(--topo);
+  font-size: var(--fs-lead);
+  line-height: 1.8;
+  max-width: 52ch;
+}
+
+.philosophy__p + .philosophy__p {
+  margin-top: 1.1em;
+}
+
+/* ------------------------------ Pilares -------------------------------- */
+.pillars {
+  margin-top: clamp(30px, 4vw, 50px);
+  display: grid;
+  gap: 0;
+}
+
+.pillars li {
+  display: flex;
+  gap: clamp(16px, 2vw, 28px);
+  padding: clamp(16px, 2vw, 22px) 0;
+  border-top: 1px solid rgba(var(--espresso-rgb), 0.1);
+}
+
+.pillars li:last-child {
+  border-bottom: 1px solid rgba(var(--espresso-rgb), 0.1);
+}
+
+.pillars__n {
+  font-family: var(--font-display);
+  font-size: 0.92rem;
+  color: var(--dorado-deep);
+  letter-spacing: 0.1em;
+  padding-top: 0.2em;
+  min-width: 2ch;
+}
+
+.pillars h3 {
+  font-family: var(--font-sans);
+  font-size: 0.86rem;
+  font-weight: 400;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 5px;
+}
+
+.pillars p {
+  color: var(--topo);
+  font-size: 0.92rem;
+  line-height: 1.65;
+  max-width: 44ch;
+}
+
+/* -------------------------------- Cita --------------------------------- */
+.pullquote {
+  position: relative;
+  margin-top: clamp(60px, 8vw, 118px);
+  padding-top: clamp(38px, 5vw, 62px);
+  border-top: 1px solid rgba(var(--dorado-rgb), 0.32);
+  text-align: center;
+}
+
+.pullquote__mark {
+  position: absolute;
+  top: clamp(2px, 1.4vw, 14px);
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: var(--font-display);
+  font-size: clamp(4rem, 8vw, 7rem);
+  line-height: 1;
+  color: rgba(var(--dorado-rgb), 0.34);
+  pointer-events: none;
+}
+
+.pullquote p {
+  position: relative;
+  font-family: var(--font-display);
+  font-weight: 300;
+  font-style: italic;
+  font-size: clamp(1.5rem, 3.5vw, 3rem);
+  line-height: 1.22;
+  letter-spacing: -0.015em;
+  max-width: 22ch;
+  margin-inline: auto;
+  text-wrap: balance;
+}
+
+.pullquote footer {
+  margin-top: clamp(22px, 3vw, 34px);
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.pullquote__name {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--espresso);
+}
+
+.pullquote__role {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.24em;
+  text-transform: uppercase;
+  color: var(--dorado-deep);
+}
+
+/* ----------------------------- Responsive ------------------------------ */
+@media (max-width: 900px) {
+  .philosophy__grid {
+    grid-template-columns: 1fr;
+  }
+  .philosophy__media {
+    max-width: 420px;
+    margin-inline: auto;
+    width: 100%;
+  }
+}

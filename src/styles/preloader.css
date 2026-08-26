@@ -1,0 +1,53 @@
+.preloader {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  display: grid;
+  place-items: center;
+  background: var(--marfil);
+}
+
+.preloader::after {
+  /* halo cálido detrás de la marca */
+  content: '';
+  position: absolute;
+  width: 60vmax;
+  height: 60vmax;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--dorado-rgb), 0.13), transparent 62%);
+  pointer-events: none;
+}
+
+.preloader__inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 26px;
+}
+
+.preloader__mark {
+  width: clamp(72px, 11vw, 118px);
+  height: auto;
+}
+
+.preloader__rule {
+  width: clamp(150px, 22vw, 260px);
+  height: 1px;
+  background: rgba(var(--dorado-rgb), 0.2);
+  overflow: hidden;
+}
+
+.preloader__rule span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, var(--dorado-deep), var(--champagne));
+  transform-origin: 0 50%;
+}
+
+.preloader__word {
+  font-size: var(--fs-micro);
+  letter-spacing: 0.36em;
+  text-transform: uppercase;
+  color: var(--topo);
+}

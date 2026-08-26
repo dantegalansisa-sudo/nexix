@@ -1,0 +1,149 @@
+.treatments__head {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+  gap: clamp(26px, 4vw, 78px);
+  align-items: end;
+  margin-bottom: clamp(40px, 5.5vw, 76px);
+}
+
+.treatments__title {
+  margin-top: clamp(14px, 1.8vw, 22px);
+  max-width: 15ch;
+}
+
+.treatments__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: clamp(14px, 1.6vw, 22px);
+}
+
+/* ------------------------------- Tarjeta ------------------------------- */
+.tcard {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  padding: clamp(26px, 2.9vw, 40px);
+  border-radius: 16px;
+  background: var(--marfil);
+  border: 1px solid rgba(var(--espresso-rgb), 0.075);
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    border-color 0.45s var(--ease-smooth),
+    box-shadow 0.45s var(--ease-smooth);
+}
+
+.tcard:hover {
+  border-color: rgba(var(--dorado-rgb), 0.55);
+  box-shadow: 0 26px 54px -30px rgba(var(--espresso-rgb), 0.35);
+}
+
+/* Resplandor cálido que aparece desde la esquina superior derecha */
+.tcard__glow {
+  position: absolute;
+  top: -45%;
+  right: -35%;
+  width: 78%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(var(--dorado-rgb), 0.22), transparent 66%);
+  opacity: 0;
+  z-index: -1;
+  transition: opacity 0.55s var(--ease-smooth);
+  pointer-events: none;
+}
+
+.tcard:hover .tcard__glow {
+  opacity: 1;
+}
+
+.tcard__n {
+  font-family: var(--font-display);
+  font-size: clamp(1.9rem, 2.7vw, 2.5rem);
+  font-weight: 300;
+  line-height: 1;
+  color: rgba(var(--dorado-rgb), 0.75);
+  transition: color 0.45s var(--ease-smooth);
+}
+
+.tcard:hover .tcard__n {
+  color: var(--dorado-deep);
+}
+
+.tcard__title {
+  font-size: var(--fs-h3);
+  margin: clamp(16px, 2vw, 24px) 0 10px;
+  max-width: 15ch;
+}
+
+.tcard__text {
+  color: var(--topo);
+  font-size: 0.93rem;
+  line-height: 1.68;
+  max-width: 34ch;
+}
+
+.tcard__list {
+  /* Empuja la lista al pie para que los filetes queden a la misma altura en toda la fila. */
+  margin-top: auto;
+  padding-top: clamp(20px, 2.4vw, 28px);
+  border-top: 1px solid rgba(var(--espresso-rgb), 0.09);
+  display: grid;
+  gap: 8px;
+}
+
+.tcard__list li {
+  position: relative;
+  padding-left: 17px;
+  font-size: 0.82rem;
+  letter-spacing: 0.035em;
+  color: var(--topo);
+  line-height: 1.5;
+}
+
+.tcard__list li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--dorado);
+}
+
+/* --------------------------------- Pie --------------------------------- */
+.treatments__foot {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: clamp(30px, 4vw, 48px);
+  margin-top: clamp(40px, 5vw, 70px);
+}
+
+.treatments__foot .hairline {
+  width: 100%;
+}
+
+/* ------------------------------ Responsive ------------------------------ */
+@media (max-width: 1024px) {
+  .treatments__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 860px) {
+  .treatments__head {
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+  .treatments__title {
+    max-width: 100%;
+  }
+}
+
+@media (max-width: 600px) {
+  .treatments__grid {
+    grid-template-columns: 1fr;
+  }
+}

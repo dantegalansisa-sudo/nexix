@@ -1,0 +1,65 @@
+.marquee {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(15px, 1.8vw, 22px) 0;
+  background: var(--crema);
+  border-block: 1px solid rgba(var(--dorado-rgb), 0.22);
+  user-select: none;
+}
+
+/* Difuminado en los bordes para que la cinta no "corte" en seco */
+.marquee::before,
+.marquee::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: clamp(40px, 8vw, 130px);
+  z-index: 2;
+  pointer-events: none;
+}
+.marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--crema), transparent);
+}
+.marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--crema), transparent);
+}
+
+.marquee__track {
+  display: flex;
+  width: max-content;
+  animation: marquee-slide 34s linear infinite;
+}
+
+.marquee:hover .marquee__track {
+  animation-play-state: paused;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  gap: clamp(20px, 3vw, 44px);
+  padding-right: clamp(20px, 3vw, 44px);
+  font-family: var(--font-display);
+  font-size: clamp(1.05rem, 1.9vw, 1.65rem);
+  font-weight: 300;
+  font-style: italic;
+  color: var(--espresso);
+  white-space: nowrap;
+}
+
+.marquee__item i {
+  display: block;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--dorado);
+}
+
+@keyframes marquee-slide {
+  to {
+    transform: translateX(-50%);
+  }
+}
