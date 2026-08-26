@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { CLINIC, useI18n } from '../i18n';
+import { useI18n, waLink } from '../i18n';
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
 import { PREMIUM } from '../utils/easings';
@@ -75,7 +75,7 @@ export default function Treatments() {
           transition={{ duration: 0.8, ease: PREMIUM }}
         >
           <hr className="hairline" />
-          <MagneticButton href={CLINIC.whatsapp} className="btn">
+          <MagneticButton href={waLink(t.wa.generic)} className="btn">
             {t.nav.cta}
             <span className="btn__arrow">→</span>
           </MagneticButton>

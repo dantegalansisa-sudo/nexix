@@ -9,11 +9,30 @@ export const CLINIC = {
   instagramHandle: '@martis_dental_clinic_group',
   tourismHandle: '@smileparadiserd',
   tourismUrl: 'https://www.instagram.com/smileparadiserd/',
-  whatsapp: 'https://wa.me/message/V6QXEHWZOQPND1',
+  /** Link corto del perfil de WhatsApp Business. No admite mensaje prefijado. */
+  whatsappShort: 'https://wa.me/message/V6QXEHWZOQPND1',
+  /**
+   * Número con código de país, sólo dígitos (ej. '18091234567').
+   * Sólo con el número se puede abrir WhatsApp con el mensaje ya escrito;
+   * mientras esté vacío se usa el link corto y el texto se copia al portapapeles.
+   */
+  whatsappNumber: '',
   address: 'Av. 27 de Febrero esq. Profesor Puello #56',
   city: 'San Pedro de Macorís 21000, República Dominicana',
   maps: 'https://www.google.com/maps/search/?api=1&query=Av.+27+de+Febrero+esquina+Profesor+Puello+56+San+Pedro+de+Macoris',
 } as const;
+
+/**
+ * Devuelve el enlace de WhatsApp. Con `whatsappNumber` configurado abre el chat
+ * con el mensaje ya redactado; sin él cae al link corto, que no admite texto.
+ */
+export function waLink(message?: string): string {
+  if (!CLINIC.whatsappNumber) return CLINIC.whatsappShort;
+  const base = `https://wa.me/${CLINIC.whatsappNumber}`;
+  return message ? `${base}?text=${encodeURIComponent(message)}` : base;
+}
+
+export const canPrefillWhatsApp = () => Boolean(CLINIC.whatsappNumber);
 
 const es = {
   code: 'es',
@@ -28,6 +47,17 @@ const es = {
     cta: 'Agendar cita',
     menu: 'Menú',
     close: 'Cerrar',
+  },
+  /** Mensajes que se abren ya redactados en WhatsApp según desde dónde se pulse. */
+  wa: {
+    generic: 'Hola, Martis 👋 Me gustaría agendar una cita.',
+    doctor: 'Hola, Martis 👋 Me gustaría agendar una valoración con la Dra. Elizabeth Martis.',
+    tourism: 'Hola, Martis 👋 Escribo desde el exterior y me interesa el programa de turismo dental.',
+    greeting: 'Hola, Martis 👋',
+    iAm: 'Soy',
+    interested: 'Me interesa',
+    myPhone: 'Mi teléfono / WhatsApp',
+    fromWeb: 'Enviado desde la web',
   },
   hero: {
     eyebrow: 'San Pedro de Macorís · República Dominicana',
@@ -188,9 +218,10 @@ const es = {
     formTitle: 'O déjanos tus datos',
     fields: { name: 'Nombre completo', phone: 'Teléfono o WhatsApp', interest: 'Qué te interesa', message: 'Cuéntanos brevemente' },
     interests: ['Odontología general', 'Diseño de sonrisa', 'Implantes', 'Armonización orofacial', 'Rejuvenecimiento facial', 'Turismo dental'],
-    submit: 'Enviar solicitud',
-    sent: 'Gracias. Te contactaremos muy pronto.',
-    demoNote: 'Demo: el formulario no envía datos reales.',
+    submit: 'Enviar por WhatsApp',
+    sent: 'Abriendo WhatsApp…',
+    waNote: 'Se abre WhatsApp con tu mensaje ya redactado.',
+    copyNote: 'Copiamos tu mensaje al portapapeles: pégalo en el chat.',
   },
   footer: {
     tagline: 'Donde la excelencia es nuestra especialidad.',
@@ -216,6 +247,16 @@ const en: Dict = {
     cta: 'Book a visit',
     menu: 'Menu',
     close: 'Close',
+  },
+  wa: {
+    generic: 'Hello, Martis 👋 I would like to book a visit.',
+    doctor: 'Hello, Martis 👋 I would like to book an assessment with Dr. Elizabeth Martis.',
+    tourism: 'Hello, Martis 👋 I am writing from abroad and I am interested in the dental tourism programme.',
+    greeting: 'Hello, Martis 👋',
+    iAm: 'My name is',
+    interested: 'I am interested in',
+    myPhone: 'My phone / WhatsApp',
+    fromWeb: 'Sent from the website',
   },
   hero: {
     eyebrow: 'San Pedro de Macorís · Dominican Republic',
@@ -376,9 +417,10 @@ const en: Dict = {
     formTitle: 'Or leave us your details',
     fields: { name: 'Full name', phone: 'Phone or WhatsApp', interest: 'What are you interested in', message: 'Tell us briefly' },
     interests: ['General dentistry', 'Smile design', 'Implants', 'Orofacial harmonization', 'Facial rejuvenation', 'Dental tourism'],
-    submit: 'Send request',
-    sent: 'Thank you. We will get back to you shortly.',
-    demoNote: 'Demo: this form does not send real data.',
+    submit: 'Send via WhatsApp',
+    sent: 'Opening WhatsApp…',
+    waNote: 'WhatsApp opens with your message already written.',
+    copyNote: 'We copied your message to the clipboard — just paste it in the chat.',
   },
   footer: {
     tagline: 'Where excellence is our specialty.',

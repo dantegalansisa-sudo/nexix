@@ -60,6 +60,10 @@ assets-source/       material original entregado por el cliente
 - `clinic-loop.mp4` (sin audio, 3.4 MB) alimenta el hero; `clinic.mp4` (con audio, 5.6 MB)
   se carga en diferido sólo al acercarse la sección "El espacio".
 - Las fotografías de la galería son fotogramas extraídos del propio video.
-- El formulario de contacto **no envía datos**: es una demo.
+- El formulario de contacto no usa backend: **redacta el mensaje y abre WhatsApp con él
+  ya escrito**. Para que el texto viaje prefijado hace falta rellenar `CLINIC.whatsappNumber`
+  en `src/i18n.tsx` con el número completo y sólo dígitos (ej. `18091234567`) — el link corto
+  `wa.me/message/...` no admite texto. Sin el número configurado, el sitio copia el mensaje
+  al portapapeles y abre el link corto.
 - Los testimonios son texto de muestra, pendientes de reemplazar por reseñas reales.
 - El horario de atención es un marcador de posición pendiente de confirmar con la clínica.

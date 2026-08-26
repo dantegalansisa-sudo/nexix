@@ -1,6 +1,6 @@
 import { useState, type FormEvent } from 'react';
 import { motion } from 'framer-motion';
-import { CLINIC, useI18n } from '../i18n';
+import { CLINIC, canPrefillWhatsApp, useI18n, waLink } from '../i18n';
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
 import { PREMIUM } from '../utils/easings';
@@ -9,11 +9,42 @@ import '../styles/contact.css';
 export default function Contact() {
   const { t } = useI18n();
   const [sent, setSent] = useState(false);
+  const [copied, setCopied] = useState(false);
 
-  // Demo: no hay backend, sólo se confirma el gesto.
-  const submit = (e: FormEvent) => {
+  /**
+   * No hay backend: el formulario redacta el mensaje y abre WhatsApp con él ya escrito.
+   * Si todavía no se configuró `CLINIC.whatsappNumber`, el link corto del perfil no admite
+   * texto prefijado, así que se copia al portapapeles y al paciente sólo le queda pegarlo.
+   */
+  const submit = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    const data = new FormData(e.currentTarget);
+    const get = (key: string) => String(data.get(key) ?? '').trim();
+
+    const lines = [
+      t.wa.greeting,
+      '',
+      `${t.wa.iAm} ${get('name')}.`,
+      `${t.wa.interested}: ${get('interest')}`,
+      `${t.wa.myPhone}: ${get('phone')}`,
+    ];
+
+    const note = get('message');
+    if (note) lines.push('', note);
+    lines.push('', `— ${t.wa.fromWeb}`);
+
+    const message = lines.join('\n');
+
+    if (!canPrefillWhatsApp()) {
+      void navigator.clipboard?.writeText(message).then(
+        () => setCopied(true),
+        () => setCopied(false),
+      );
+    }
+
     setSent(true);
+    window.open(waLink(message), '_blank', 'noopener,noreferrer');
   };
 
   return (
@@ -67,7 +98,7 @@ export default function Contact() {
           </dl>
 
           <div className="contact__actions">
-            <MagneticButton href={CLINIC.whatsapp} className="btn btn--light">
+            <MagneticButton href={waLink(t.wa.generic)} className="btn btn--light">
               {t.contact.whatsappCta}
               <span className="btn__arrow">→</span>
             </MagneticButton>
@@ -118,7 +149,7 @@ export default function Contact() {
               {!sent && <span className="btn__arrow">→</span>}
             </button>
 
-            <p className="formcard__note">{t.contact.demoNote}</p>
+            <p className="formcard__note">{copied ? t.contact.copyNote : t.contact.waNote}</p>
           </form>
         </motion.div>
       </div>

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion, useScroll, useMotionValueEvent } from 'framer-motion';
-import { CLINIC, useI18n, type Lang } from '../i18n';
+import { CLINIC, useI18n, waLink, type Lang } from '../i18n';
 import MagneticButton from './MagneticButton';
 import { PREMIUM } from '../utils/easings';
 import '../styles/nav.css';
@@ -78,7 +78,7 @@ export default function Nav() {
             </div>
 
             <div className="nav__cta">
-              <MagneticButton href={CLINIC.whatsapp} className="btn btn--sm">
+              <MagneticButton href={waLink(t.wa.generic)} className="btn btn--sm">
                 {t.nav.cta}
                 <span className="btn__arrow">→</span>
               </MagneticButton>
@@ -129,7 +129,7 @@ export default function Nav() {
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.55, duration: 0.6 }}
               >
-                <a className="btn btn--light" href={CLINIC.whatsapp} target="_blank" rel="noopener noreferrer">
+                <a className="btn btn--light" href={waLink(t.wa.generic)} target="_blank" rel="noopener noreferrer">
                   {t.nav.cta}
                   <span className="btn__arrow">→</span>
                 </a>

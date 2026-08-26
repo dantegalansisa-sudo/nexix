@@ -1,6 +1,6 @@
 import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'framer-motion';
-import { CLINIC, useI18n } from '../i18n';
+import { useI18n, waLink } from '../i18n';
 import MagneticButton from './MagneticButton';
 import AnimatedCounter from './AnimatedCounter';
 import { PREMIUM } from '../utils/easings';
@@ -79,7 +79,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.95, delay: 1.08, ease: PREMIUM }}
           >
-            <MagneticButton href={CLINIC.whatsapp} className="btn">
+            <MagneticButton href={waLink(t.wa.generic)} className="btn">
               {t.hero.ctaPrimary}
               <span className="btn__arrow">→</span>
             </MagneticButton>

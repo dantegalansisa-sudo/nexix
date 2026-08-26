@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { CLINIC, useI18n } from '../i18n';
+import { useI18n, waLink } from '../i18n';
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
 import { useParallax } from '../hooks/useParallax';
@@ -75,7 +75,7 @@ export default function Doctor() {
           </ul>
 
           <div className="doctor__cta">
-            <MagneticButton href={CLINIC.whatsapp} className="btn">
+            <MagneticButton href={waLink(t.wa.doctor)} className="btn">
               {t.doctor.cta}
               <span className="btn__arrow">→</span>
             </MagneticButton>

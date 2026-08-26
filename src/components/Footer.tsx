@@ -1,4 +1,4 @@
-import { CLINIC, useI18n } from '../i18n';
+import { CLINIC, useI18n, waLink } from '../i18n';
 import '../styles/footer.css';
 
 export default function Footer() {
@@ -33,7 +33,7 @@ export default function Footer() {
             <a href={CLINIC.instagram} target="_blank" rel="noopener noreferrer">
               {CLINIC.instagramHandle}
             </a>
-            <a href={CLINIC.whatsapp} target="_blank" rel="noopener noreferrer">
+            <a href={waLink(t.wa.generic)} target="_blank" rel="noopener noreferrer">
               WhatsApp
             </a>
           </address>
