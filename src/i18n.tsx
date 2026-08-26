@@ -60,6 +60,8 @@ const es = {
     interested: 'Me interesa',
     myPhone: 'Mi teléfono / WhatsApp',
     fromWeb: 'Enviado desde la web',
+    fab: 'Escríbenos',
+    fabHint: 'Respondemos por WhatsApp',
   },
   hero: {
     badge: 'Cuidamos tu sonrisa',
@@ -256,6 +258,8 @@ const en: Dict = {
     interested: 'I am interested in',
     myPhone: 'My phone / WhatsApp',
     fromWeb: 'Sent from the website',
+    fab: 'Chat with us',
+    fabHint: 'We reply on WhatsApp',
   },
   hero: {
     badge: 'We care for your smile',

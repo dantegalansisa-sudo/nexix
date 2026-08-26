@@ -3,6 +3,7 @@ import { motion } from 'framer-motion';
 import { CLINIC, canPrefillWhatsApp, useI18n, waLink } from '../i18n';
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
+import { IconWhatsApp } from './Icons';
 import { PREMIUM } from '../utils/easings';
 import '../styles/contact.css';
 
@@ -107,8 +108,8 @@ export default function Contact() {
 
           <div className="contact__actions">
             <MagneticButton href={waLink(t.wa.generic)} className="btn btn--light">
+              <IconWhatsApp className="btn__wa" />
               {t.contact.whatsappCta}
-              <span className="btn__arrow">→</span>
             </MagneticButton>
             <MagneticButton href={CLINIC.maps} className="btn btn--outline-light">
               {t.contact.mapsCta}
@@ -153,8 +154,8 @@ export default function Contact() {
             </label>
 
             <button type="submit" className="btn formcard__submit">
+              <IconWhatsApp className="btn__wa" />
               {sent ? t.contact.sent : t.contact.submit}
-              {!sent && <span className="btn__arrow">→</span>}
             </button>
 
             <p className="formcard__note">{copied ? t.contact.copyNote : t.contact.waNote}</p>

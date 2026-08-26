@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { CLINIC, useI18n, waLink } from '../i18n';
 import RevealText from './RevealText';
 import MagneticButton from './MagneticButton';
+import { IconWhatsApp } from './Icons';
 import { PREMIUM } from '../utils/easings';
 import '../styles/tourism.css';
 
@@ -38,6 +39,7 @@ export default function Tourism() {
                 <span className="btn__arrow">↗</span>
               </MagneticButton>
               <MagneticButton href={waLink(t.wa.tourism)} className="btn btn--ghost">
+                <IconWhatsApp className="btn__wa" />
                 {t.tourism.cta}
               </MagneticButton>
             </div>

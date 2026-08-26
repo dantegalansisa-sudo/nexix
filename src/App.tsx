@@ -13,6 +13,7 @@ import Tourism from './components/Tourism';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
 import Footer from './components/Footer';
+import WhatsAppFab from './components/WhatsAppFab';
 
 export default function App() {
   return (
@@ -37,6 +38,7 @@ export default function App() {
       </main>
 
       <Footer />
+      <WhatsAppFab />
     </I18nProvider>
   );
 }

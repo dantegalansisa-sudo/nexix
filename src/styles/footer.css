@@ -179,3 +179,14 @@
     justify-content: flex-start;
   }
 }
+
+.footer__wa {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+}
+
+.footer__wa svg {
+  width: 15px;
+  height: 15px;
+}
